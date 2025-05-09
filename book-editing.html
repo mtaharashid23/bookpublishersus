@@ -899,6 +899,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     <script src="assets/js/clock.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="assets/js/index.js"></script>
 
     
@@ -907,65 +908,82 @@
 
     <script>
        $(document).ready(function () {
-            const form = $("#regForm");
+    const form = $("#regForm");
 
-            form.validate({
-                rules: {
-                    name: {
-                        required: true
-                    },
-                    email: {
-                        required: true,
-                        email: true
-                    },
-                    phone: {
-                        required: true
-                    }
+    form.validate({
+        rules: {
+            name: { required: true },
+            email: { required: true, email: true },
+            phone: { required: true }
+        },
+        messages: {
+            name: { required: "Please enter your name" },
+            email: {
+                required: "Please enter your email address",
+                email: "Please enter a valid email address"
+            },
+            phone: {
+                required: "Please enter your phone number",
+                digits: "Please enter only digits for your phone number"
+            }
+        },
+        submitHandler: function () {
+            const name = $("#name").val();
+            const email = $("#email").val();
+            const phone = $("#phone").val();
+            const message = $("#message").val();
+            const email_btn = $("#signupBtn");
+
+            email_btn.addClass("disabled_button");
+
+            $.ajax({
+                type: "POST",
+                url: "contact-form-handler.php",
+                data: {
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    message: message
                 },
-                messages: {
-                    name: {
-                        required: "Please enter your name"
-                    },
-                    email: {
-                        required: "Please enter your email address",
-                        email: "Please enter a valid email address"
-                    },
-                    phone: {
-                        required: "Please enter your phone number",
-                        digits: "Please enter only digits for your phone number"
-                    }
-                },
-                submitHandler: function (form) {
-                    const name = $("#name").val() || null;
-                    const email = $("#email").val() || null;
-                    const phone = $("#phone").val() || null;
-                    const message = $("#message").val() || null;
-                    const email_btn = $("#signupBtn");
+                success: function (response) {
+                    email_btn.removeClass("disabled_button");
+                    $("#name, #email, #phone, #message").val("");
 
-                    email_btn.addClass("disabled_button");
-
-                    $.ajax({
-                        type: "POST",
-                        url: "contact-form-handler.php", // Your PHP backend file
-                        data: {
-                            name: name,
-                            email: email,
-                            phone: phone,
-                            message: message
-                        },
-                        success: function (response) {
-                            email_btn.removeClass("disabled_button");
-                            $("#name, #email, #phone, #message").val("");
-                            window.location.href = "thankyou";
-                        },
-                        error: function (xhr, status, error) {
-                            email_btn.removeClass("disabled_button");
-                            console.error("AJAX error:", status, error);
+                    // SweetAlert2 Toast
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 4000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
                         }
+                    });
+                    Toast.fire({
+                        icon: "success",
+                        title: "Email Sent Successfully"
+                    });
+
+                    // Redirect after delay
+                    setTimeout(() => {
+                        window.location.href = "thankyou";
+                    }, 1500);
+                },
+                error: function (xhr, status, error) {
+                    email_btn.removeClass("disabled_button");
+                    console.error("AJAX error:", status, error);
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops!",
+                        text: "Something went wrong. Please try again."
                     });
                 }
             });
-        });
+        }
+    });
+});
     </script>
 
 </body>

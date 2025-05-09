@@ -38,8 +38,7 @@ $('.bannerbottom_slide ul').not('.slick-initialized').slick({
     autoplaySpeed: 3000,
     arrows: false,
 
-    responsive: [
-        {
+    responsive: [{
             breakpoint: 999,
             settings: {
                 arrows: false,
@@ -112,8 +111,7 @@ $('.service-ltr').not('.slick-initialized').slick({
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    responsive: [
-        {
+    responsive: [{
             breakpoint: 1601,
             settings: {
                 slidesToShow: 3,
@@ -156,8 +154,7 @@ $('.service-rtl').not('.slick-initialized').slick({
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    responsive: [
-        {
+    responsive: [{
             breakpoint: 1601,
             settings: {
                 slidesToShow: 3,
@@ -214,18 +211,18 @@ $(document).ready(function () {
             },
             pop_tel: { required: "Please enter your phone number" }
         },
-        submitHandler: function (form) {
-            const name = $("#pop_name").val() || null;
-            const email = $("#pop_email").val() || null;
-            const phone = $("#pop_tel").val() || null;
-            const message = $("#pop_message").val() || null;
-            const email_btn = $("#pop_submit");
+        submitHandler: function () {
+            const name = $("#pop_name").val();
+            const email = $("#pop_email").val();
+            const phone = $("#pop_tel").val();
+            const message = $("#pop_message").val();
+            const submitBtn = $("#pop_submit");
 
-            email_btn.addClass("disabled_button");
+            submitBtn.addClass("disabled_button");
 
             $.ajax({
                 type: "POST",
-                url: "popup-form-handler.php", // Local PHP file
+                url: "popup-form-handler.php",
                 data: {
                     name: name,
                     email: email,
@@ -233,13 +230,39 @@ $(document).ready(function () {
                     message: message
                 },
                 success: function (response) {
-                    email_btn.removeClass("disabled_button");
+                    submitBtn.removeClass("disabled_button");
                     $("#pop_name, #pop_email, #pop_tel, #pop_message").val("");
-                    window.location.href = "thankyou";
+
+                    // SweetAlert2 Toast
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 4000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+                        }
+                    });
+                    Toast.fire({
+                        icon: "success",
+                        title: "Email Sent Successfully"
+                    });
+
+                    // Optional: redirect after short delay
+                    setTimeout(() => {
+                        window.location.href = "thankyou.html";
+                    }, 1500);
                 },
                 error: function (xhr, status, error) {
-                    email_btn.removeClass("disabled_button");
-                    console.error("AJAX error:", status, error);
+                    submitBtn.removeClass("disabled_button");
+                    console.error("AJAX Error:", status, error);
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops!",
+                        text: "Something went wrong. Please try again."
+                    });
                 }
             });
         }
@@ -253,21 +276,20 @@ $('.sitelogo_slide').not('.slick-initialized').slick({
     autoplaySpeed: 3000,
     arrows: false,
 
-    responsive: [
-      {
-        breakpoint: 999,
-        settings: {
-          arrows: false,
-          slidesToShow: 2
+    responsive: [{
+            breakpoint: 999,
+            settings: {
+                arrows: false,
+                slidesToShow: 2
+            }
+        },
+        {
+            breakpoint: 768,
+            settings: {
+                arrows: true,
+                slidesToShow: 1
+            }
         }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          arrows: true,
-          slidesToShow: 1
-        }
-      }
     ]
 
-  });
+});
