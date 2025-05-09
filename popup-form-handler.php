@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = htmlspecialchars($_POST["message"] ?? "");
 
     // Send email or store in database here
-    $to = "your-email@example.com";  // Replace with your email
+    $to = "info@bookpublishersus.com";  // Replace with your email
     $subject = "Popup Form Submission";
     $body = "Name: $name\nEmail: $email\nPhone: $phone\nMessage:\n$message";
     $headers = "From: $email";

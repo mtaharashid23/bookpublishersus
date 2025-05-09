@@ -235,7 +235,7 @@ $(document).ready(function () {
                 success: function (response) {
                     email_btn.removeClass("disabled_button");
                     $("#pop_name, #pop_email, #pop_tel, #pop_message").val("");
-                    window.location.href = "/thankyou.html";
+                    window.location.href = "thankyou.html";
                 },
                 error: function (xhr, status, error) {
                     email_btn.removeClass("disabled_button");
