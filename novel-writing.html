@@ -789,7 +789,7 @@
     
 
     <script>
-        $(document).ready(function () {
+       $(document).ready(function () {
             const form = $("#regForm");
 
             form.validate({
@@ -804,7 +804,6 @@
                     phone: {
                         required: true
                     }
-                    // Add more rules for other fields as needed
                 },
                 messages: {
                     name: {
@@ -818,49 +817,35 @@
                         required: "Please enter your phone number",
                         digits: "Please enter only digits for your phone number"
                     }
-                    // Add more custom messages for other fields as needed
                 },
                 submitHandler: function (form) {
                     const name = $("#name").val() || null;
                     const email = $("#email").val() || null;
-                    const phoneNo = $("#phone").val() || null;
+                    const phone = $("#phone").val() || null;
                     const message = $("#message").val() || null;
                     const email_btn = $("#signupBtn");
 
                     email_btn.addClass("disabled_button");
 
-                    const data = {
-                        name,
-                        email,
-                        phoneNo,
-                        message
-                    };
-
-                    fetch("https://backend-develop.thecoredesigns.com/contact", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
+                    $.ajax({
+                        type: "POST",
+                        url: "contact-form-handler.php", // Your PHP backend file
+                        data: {
+                            name: name,
+                            email: email,
+                            phone: phone,
+                            message: message
                         },
-                        body: JSON.stringify(data),
-                    })
-                        .then((response) => {
-                            if (!response.ok) {
-                                email_btn.removeClass("disabled_button");
-                                throw new Error("Network response was not ok");
-                            }
-                            return response.json();
-                        })
-                        .then((json) => {
-                            console.log(json);
+                        success: function (response) {
                             email_btn.removeClass("disabled_button");
                             $("#name, #email, #phone, #message").val("");
-                            window.location.href = "https://bookpublishersus.com/thankyou.html";
-                        })
-                        .catch((error) => {
+                            window.location.href = "thankyou.html";
+                        },
+                        error: function (xhr, status, error) {
                             email_btn.removeClass("disabled_button");
-                            console.error("There was a problem with the fetch operation:",
-                                error);
-                        });
+                            console.error("AJAX error:", status, error);
+                        }
+                    });
                 }
             });
         });

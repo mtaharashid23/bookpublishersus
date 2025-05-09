@@ -202,66 +202,46 @@ $(document).ready(function () {
 
     form.validate({
         rules: {
-            pop_name: {
-                required: true
-            },
-            pop_email: {
-                required: true,
-                email: true
-            },
-            pop_tel: {
-                required: true
-            }
-            // Add more rules for other fields as needed
+            pop_name: { required: true },
+            pop_email: { required: true, email: true },
+            pop_tel: { required: true }
         },
         messages: {
-            pop_name: {
-                required: "Please enter your name"
-            },
+            pop_name: { required: "Please enter your name" },
             pop_email: {
                 required: "Please enter your email address",
                 email: "Please enter a valid email address"
             },
-            pop_tel: {
-                required: "Please enter your phone number"
-            }
-            // Add more custom messages for other fields as needed
+            pop_tel: { required: "Please enter your phone number" }
         },
         submitHandler: function (form) {
             const name = $("#pop_name").val() || null;
             const email = $("#pop_email").val() || null;
-            const phoneNo = $("#pop_tel").val() || null;
+            const phone = $("#pop_tel").val() || null;
             const message = $("#pop_message").val() || null;
             const email_btn = $("#pop_submit");
 
             email_btn.addClass("disabled_button");
 
-            const data = { name, email, phoneNo, message };
-
-            fetch("https://backend-develop.thecoredesigns.com/contact", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
+            $.ajax({
+                type: "POST",
+                url: "popup-form-handler.php", // Local PHP file
+                data: {
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    message: message
                 },
-                body: JSON.stringify(data),
-            })
-                .then((response) => {
-                    if (!response.ok) {
-                        email_btn.removeClass("disabled_button");
-                        throw new Error("Network response was not ok");
-                    }
-                    return response.json();
-                })
-                .then((json) => {
-                    console.log(json);
+                success: function (response) {
                     email_btn.removeClass("disabled_button");
                     $("#pop_name, #pop_email, #pop_tel, #pop_message").val("");
-                    window.location.href = "https://bookpublishersus.com/thankyou.html";
-                })
-                .catch((error) => {
+                    window.location.href = "/thankyou.html";
+                },
+                error: function (xhr, status, error) {
                     email_btn.removeClass("disabled_button");
-                    console.error("There was a problem with the fetch operation:", error);
-                });
+                    console.error("AJAX error:", status, error);
+                }
+            });
         }
     });
 });
