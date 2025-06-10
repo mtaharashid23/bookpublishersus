@@ -539,3 +539,7 @@ video.video-wrapper {object-fit: cover;}
 .tier-box:hover {background: #fe0009;color: #fff;}
 .tier-box:hover h4, .tier-box:hover span {color: #fff!important;}
 .tier-box:hover .tier-circle {filter: brightness(100);}
+
+.main_header.sticky .navbar-brand img {
+    filter: brightness(0) invert(1);
+}
