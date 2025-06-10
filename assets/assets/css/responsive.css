@@ -1,0 +1,226 @@
+@media (max-width:1600px) {
+
+}
+
+@media (max-width:1366px) {
+    .content_bann{ padding-top: 8rem; }
+    .home_banner{ height: initial; }
+    .services-sec-slider-ltr .slick-slide img,
+    .services-sec-slider-rtl .slick-slide img{ max-width: 120px; }
+    .services-sec-box{ padding: 30px 15px 25px; min-height: 380px; }
+    .services-sec-box-inner{ padding: 0; }
+    .tier-box{ padding: 130px 25px 30px 25px; }
+    .tier-circle{  max-width: 100px; }
+    .tier-box span{ font-size: 56px; }
+    .tier-box h4{font-size: 26px; }
+    .parentsld .slider_ban1{ margin-right: 20px; }
+    .about_sec1 figure img{ max-width: 100%; }
+
+
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:1199px) {
+
+    .navbar-brand lottie-player{ width: 140px !important; }
+    .yellow_btn{ padding: 8px 20px; }
+    .header_btn a.yellow_btn{ padding: 8px 15px; }
+    .navbar-expand-lg .navbar-nav .nav-link{  padding-right: 0.3rem; padding-left: 0.3rem; }
+    .main_header .container{ max-width: 95%; padding: 0;  }
+    .tier-box span{ font-size: 45px; }
+    .tier-box h4{ font-size: 22px; padding: 0 0 15px; }
+    .tier-box{ padding: 80px 15px 30px 20px; }
+    .tier-circle{ max-width: 80px; }
+    .tier-box p{ font-size: 14px;  line-height: 22px; }
+    .testi-sec{ padding: 50px 0; }
+    .cta-head-2 h3{ line-height: 42px;    font-size: 30px; }
+    .statue-img img{ max-width: 100%; }
+    footer .col-md-1{ display: none; }
+
+    .about-banner .container{  background-size: cover; }
+    .cta h2{ font-size: 40px; }
+    .cta h2+p{ font-size: 20px; }
+    .cta h6 + a{  font-size: 30px; }
+    .cta{ padding: 30px 0; }
+    .why_choose::before{ background: #f8f7fd; background-position: center; }
+    .core-disc h2{ font-size: 16px; }
+    .innerbann .container{ background-size: cover; }
+    .services-rates ul.nav-tabs li.nav-item {
+        flex: 0 0 50%;
+    }
+    .services-rates ul.nav-tabs li.nav-item:nth-child(even) a {
+        border-right: 1px solid #ccc;
+    }
+}
+@media (min-width:768px) and (max-width:1199px) {
+
+    footer .col-md-5{ flex: 0 0 41.666667%; max-width: 41.666667%; }
+    footer .col-md-5+.col-md-5{  flex: 0 0 58.333333%; max-width: 58.333333%; }
+    .navbar-brand img {max-width: 120px;}
+
+}
+
+@media (max-width:1081px) {
+
+    .popup-bann{ display: none; }
+    .popup-content::after{ display: none; }
+    .popup-content{ margin-left: 0; padding: 50px 28px 50px 50px;  max-width: 800px; }
+    .navbar-brand img {max-width: 120px;}
+
+
+}
+
+@media (max-width:980px) {
+
+    .header_btn a.yellow_btn{ display: none; }
+    .main_header .container-fluid{ display: block; position: relative; }
+    .main_header .navbar-toggler{ position: absolute;  top: 30px; transform: translateY(-50%); right: 0; }
+    .main_header.sticky .navbar-light .navbar-toggler{ color: rgb(255 255 255); border-color: rgb(255 255 255); background: #fff; }
+    .fiction-banner .container{ max-width: 100%; }
+    .innerbann + .site-logos{ position: relative; }
+    .heading3{ font-size: 30px; }
+    .para{ font-size: 15px; }
+    .btnalign{ display: block; }
+    .btnalign .simplestyle{ padding-left: 0; }
+    .info-process h5{ font-size: 14px; }
+    .global_success .heading3{ font-size: 38px; }
+    .cta h2+p{ font-size: 16px; }
+    .cta h2{ font-size: 30px; }
+    .heading strong{  font-size: 38px; }
+    .why_choose .container{ max-width: 100%; }
+    .publishbook_sec .col-md-5{ display: none; }
+    .publishbook_sec .col-md-7{ flex: 0 0 100%; max-width: 100%; }
+    .touch-sec .col-md-5{ flex: 0 0 50%; max-width: 50%; }
+    .touch-sec .col-md-5.offset-1{ margin-left: 0; }
+    .banner-head h1{ padding: 0px 0 0 0;font-size: 34px; }
+    .content_bann h2{ font-size: 20px; }
+    .content_bann h1{ font-size: 40px; line-height: 40px;  }
+    .content_bann h1 strong{ font-size: 45px; }
+    .parentsld .slider_ban2{ display: none; }
+    .bannerbottom_slide ul img{ margin: auto; }
+    .bannerbottom_slide ul{ margin-bottom: 0 !important; }
+    .copyright-sec-list li.last{ width: 100%; }
+    .mainpkge {margin: 0;}
+    .mainpkge h2 {font-size: 24px;}
+    .mainpkge .pricewrp h1 {font-size: 50px;}
+    .mainpkge h1.getqout {font-size: 30px !important;}
+    .tab-content h4 {font-size: 18px;}
+    .table-div td p {font-size: 1rem;}
+    .navbar-brand img {max-width: 120px;}
+}
+
+@media (max-width:769px) {
+
+    .services-sec-box{ padding: 30px 30px 25px; min-height: initial; }
+    .cta h6{ font-size: 25px; }
+    .cta h6 + a{ font-size: 28px; }
+    .cta h2{ letter-spacing: normal; }
+    .heading{ font-size: 30px; line-height: 40px; }
+    .para{ font-size: 14px; line-height: normal; }
+    .about_sec1 h5{ font-size: 18px; }
+    .cta-head-2 h3{ line-height: normal;  font-size: 25px;  }
+    .statue-img img{ display: none; }
+    .clock-box .col-md-6{ flex: 0 0 100%;  max-width: 100%;}
+    .clock-box .col-md-6+.col-md-6{ display: none; }
+    .payment img{ max-width: 100%; }
+    .innerbann .container{ max-width: 100%;height: 250px; }
+    .global_success .heading3 span{ font-size: 20px; }
+    .global_success .heading3{ font-size: 28px; }
+    .bookediting-banner .container{ height: 260px; }
+    .innerbann h1{ font-size: 30px; letter-spacing: 0; }
+    .core-main{ display: block; }
+    .bann_slide.slider_ban1{ display: none; }
+    .content_bann{ padding-bottom: 1rem; }
+    .template-index .main_header{ background: #000; }
+    .main_header .navbar-light .navbar-toggler{ color: rgb(255 255 255);  border-color: rgb(255 255 255); background: #fff; }
+    .cta-btn{ display: block; }
+    .clock-box-links{ margin: 10px 0px 0 0; }
+    .top-bar{ display: none; }
+    .bookediting_sec2 .heading3 span{ font-size: 25px; }
+    .bannerbottom_slide,
+    .sitelogo_slide{ overflow: hidden; }
+    .tier-circle{     right: 6px;  top: 20px;}
+    .banner-head h2{ font-size: 30px; }
+    .popup-content{ max-width: 100%; }
+    .popup-content h2{ font-size: 30px; line-height: 32px; }
+    .popup-content::before{ display: none;}
+    .popup-content h2 + p{ max-width: 100%; margin-left: 0; }
+    .popup-content{ border-radius: 40px 40px 40px 40px; padding: 20px 25px 40px 25px; }
+    .services-rates ul.nav-tabs li.nav-item {flex: 0 0 100%;}
+    .innerbann .container {height: 200px;}
+    .services-rates ul.nav-tabs li.nav-item a {font-size: 16px;padding: 20px 10px;}
+}
+
+@media (max-width:575px) {
+
+    .about_sec1 figure { margin-top: 20px; }
+    .bookediting_sec2 .process_steps h4{ font-size: 25px; line-height: normal; }
+    .what_offer h3{ font-size: 25px; line-height: normal; }
+    .what_offer h3 strong{ font-size: 40px; }
+    .cta h2 { font-size: 25px; }
+    .cta h2 br{ display: none; }
+    .core-main{ display: block; }
+    .testi-box{ display: block; }
+    .testi-box img{ margin: 0 auto 10px auto; }
+    .testi-text{ padding: 0; text-align: center; }
+    .autor-trust{ margin: auto; }
+    .testi-slider .row{ width:  initial !important;}
+    .cta-head-2 h3{ font-size: 16px; }
+    .clock-box{ text-align: center; }
+    .watch-box  { margin: auto; justify-content: center; }
+    .touch-sec .col-md-5{ flex: 0 0 100%; max-width: 100%; }
+    .footer-box-2{ margin-top: 20px; }
+    .footer-box-2 h4{ padding: 0 0 30px 0; }
+    .services-links{ display: block; }
+    .services-links li{ width: 100%; }
+    .awards-links{ display: none;}
+    .copyright-sec-list{ text-align: center; margin-bottom: 10px; }
+    .copyright-sec p{ margin-bottom: 10px;}
+    footer{ padding: 20px 0px 20px; }
+    .publishbook_sec .col-md-5{ display: block; }
+    .author-name{ margin: auto; }
+    .copyright-sec p{ font-size: 14px; }
+
+
+}
+
+@media (max-width:414px) {
+    .about-banner .container{ height: 300px; }
+    .innerbann h1{ line-height: normal; }
+
+}
+
+@media (max-width: 768px) {
+    .video-wrapper {
+        height: 700px;
+    }
+    .best-selling ul li {
+        width: 100%;
+    }
+    .best-selling .container {
+        padding: 30px 15px;
+    }
+    .best-selling .heading h2 {
+        font-size: 21px;
+        line-height: 34px;
+    }
+    .best-selling p {
+        margin: 0 0 20px;
+        width: 100%;
+    }
+    .best-selling ul li {
+        width: 100% !important;
+        margin: 0px 0px 12px;
+    }
+    button.slick-arrow {
+        display: none!important;
+    } 
+    @media only screen and (max-width: 980px) and (min-width: 320px) {
+        .best-selling h5, .img-cta2 h2 h4 h3, .our-banner h1, .pouring h6, .pouring-cta h2 {
+            font-size: 22px;
+        }
+    }
+}

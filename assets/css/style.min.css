@@ -160,7 +160,7 @@ ul {
 }
 
 .copyright-sec,.main_header .navbar {
-    padding: 20px 0
+    padding: 1em 0;
 }
 
 .header_btn a {
@@ -1513,7 +1513,9 @@ input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-
 }
 
 .navbar-brand {
-    padding-top: 0
+    width: 220px;
+    padding: 0;
+    margin: 0;
 }
 
 .copyright-sec-list li.first:before {
@@ -1745,9 +1747,9 @@ ul.top-b li i {
 }
 
 .navbar-brand img {
-    max-width: 150px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    height: auto
 }
 
 .error {
