@@ -543,3 +543,5 @@ video.video-wrapper {object-fit: cover;}
 .main_header.sticky .navbar-brand img {
     filter: brightness(0) invert(1);
 }
+
+.bg-img-none{background-image: none !important;background: none !important;}
