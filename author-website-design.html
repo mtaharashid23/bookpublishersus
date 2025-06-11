@@ -41,7 +41,7 @@
                         </li>
                         <li class="msg">
                             <i class="fa-solid fa-envelope"></i>
-                            <a href="info@bookpublishersus.com">info@bookpublishersus.com</a>
+                            <a href="mailto:info@bookpublishersus.com">info@bookpublishersus.com</a>
                         </li>
                     </ul>
                 </div>
@@ -124,7 +124,7 @@
                         </ul>
                     </div>
                     <div class="header_btn">
-                        <a href="javascript:$zopim.livechat.window.show();"
+                        <a href="javascript:;"
                             class="default_btn yellow_btn small_btn chat">Lets Talk</a>
                     </div>
                 </div>
@@ -951,6 +951,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="assets/js/index.js"></script>
+<script>
+        document.querySelectorAll(".chat").forEach(function (element) {
+            element.addEventListener("click", function () {
+                if (typeof LC_API !== "undefined") {
+                    LC_API.open_chat_window();
+                } else {
+                    console.warn("LiveChat not loaded yet.");
+                }
+            });
+        });
+    </script>
 <!-- Start of LiveChat (www.livechat.com) code -->
     <script>
         window.__lc = window.__lc || {};
